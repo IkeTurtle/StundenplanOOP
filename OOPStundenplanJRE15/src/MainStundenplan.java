@@ -4,15 +4,15 @@ MainStundenplan {
 	public static void main(String[] args) 
 	{
 		//Eike	
-		CourseDescriptionPanel descriptionPanel = new CourseDescriptionPanel();
-		StudCourseListPanel courseListPanel = new StudCourseListPanel();
+		//CourseDescriptionPanel descriptionPanel = new CourseDescriptionPanel();
+		//StudCourseListPanel courseListPanel = new StudCourseListPanel();
 		
 		
 		//Quang
-		LectFrame myframe = new LectFrame();
+		//LectFrame myframe = new LectFrame();
 		
 		
-		
+		StartScreen start = new StartScreen();
 		
 		
 		//Zong Yie

@@ -3,17 +3,29 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-public class CourseCreatePanel extends JPanel {
+public class LectCourseCreate extends JPanel {
 
-	public CourseCreatePanel() {
+	public LectCourseCreate() {
 		
-		setLayout(null);
+		JFrame myFrame = new JFrame("Studenten Funktionen");
+		myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		myFrame.setSize(500, 600);
+	
+		JPanel myPanel = new JPanel();
+	
+		myFrame.getContentPane().add(myPanel);
+		myFrame.setVisible(true);
+		
+		
+		
+		
+		myPanel.setLayout(null);
 		
 		JLabel Ueberschrift = new JLabel("Kurs erstellen");
 		
@@ -23,7 +35,7 @@ public class CourseCreatePanel extends JPanel {
 		
 		Ueberschrift.setBounds(175,10,150,40);
 		
-		add(Ueberschrift);
+		myPanel.add(Ueberschrift);
 		
 		
 		JLabel name = new JLabel("Name");
@@ -33,12 +45,12 @@ public class CourseCreatePanel extends JPanel {
 		
 		name.setBounds(175,50,150,40);
 		
-		add(name);
+		myPanel.add(name);
 		
 
 		JTextArea namebox = new JTextArea();
 		namebox.setBounds(70,90,360,20);
-		add(namebox);
+		myPanel.add(namebox);
 		
 		
 		
@@ -50,12 +62,12 @@ public class CourseCreatePanel extends JPanel {
 		
 		beschreibung.setBounds(175,120,150,40);
 		
-		add(beschreibung);
+		myPanel.add(beschreibung);
 		
 		
 		JTextArea beschreibungbox = new JTextArea();
 		beschreibungbox.setBounds(70,160,360,150);
-		add(beschreibungbox);
+		myPanel.add(beschreibungbox);
 		
 		
 		
@@ -66,30 +78,31 @@ public class CourseCreatePanel extends JPanel {
 		
 		zeit.setBounds(175,320,150,40);
 		
-		add(zeit);
+		myPanel.add(zeit);
 		
 		JTextArea zeitbox = new JTextArea();
 		zeitbox.setBounds(70,360,360,100);
-		add(zeitbox);
+		myPanel.add(zeitbox);
 		
 		
 		JButton create = new JButton("Fertig");
 		
 		create.setBounds(325, 495, 100, 30);
-		add(create);
+		myPanel.add(create);
 		
 		
-		JButton zurueck = new JButton("Zurück");
+		JButton zurueck = new JButton("ZurÃ¼ck");
 		
 		zurueck.setBounds(75, 495, 100, 30);
-		add(zurueck);
+		myPanel.add(zurueck);
 		
 		
 		zurueck.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
 				
-				LectFrame frame = new LectFrame();	
+				LectFun frame = new LectFun();	
+				myFrame.dispose();
 			}		
 			
 			
@@ -98,5 +111,6 @@ public class CourseCreatePanel extends JPanel {
 		});
 		
 		
-	}
+		}
+	
 }

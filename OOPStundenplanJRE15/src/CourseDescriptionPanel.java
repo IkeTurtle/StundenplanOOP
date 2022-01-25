@@ -9,14 +9,13 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 
-public class CourseDescriptionPanel extends JPanel
-{
+public class CourseDescriptionPanel extends JPanel {
+
 	private JLabel nameLabel, idLabel, descriptionLabel, timeslotLabel;
 	private JButton deleteButton, returnButton;
 	
-	
-	public CourseDescriptionPanel()
-	{
+	public CourseDescriptionPanel() {
+		
 		JFrame descriptionFrame = new JFrame("DescriptionFrame");
 		descriptionFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 		
@@ -37,7 +36,7 @@ public class CourseDescriptionPanel extends JPanel
 		descriptionPanel.add(timeslotLabel);
 		
 		returnButton = new JButton("Return");
-		deleteButton = new JButton("Kurs aus Liste löschen");
+		deleteButton = new JButton("Kurs aus Liste lÃ¶schen");
 		descriptionPanel.add(returnButton);
 		descriptionPanel.add(deleteButton);
 		
@@ -68,9 +67,6 @@ public class CourseDescriptionPanel extends JPanel
 		returnButton.setBounds(50, 500 , 150, 50);
 		
 		deleteButton.setBounds(250, 500 , 200, 50);
-		
-		
-		
 		
 	}
 }

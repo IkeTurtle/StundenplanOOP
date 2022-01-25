@@ -1,18 +1,28 @@
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import java.awt.BorderLayout;
-import java.awt.Font;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class LectFunPanel extends JPanel {
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
-	public LectFunPanel() {
+public class LectFun extends JPanel {
+
+	public LectFun() {
+		
+		JFrame myFrame = new JFrame("Dozenten Funktionen");
+		myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		myFrame.setSize(500, 600);
+		
+		JPanel myPanel = new JPanel();
+		
+		myFrame.getContentPane().add(myPanel);
+		myFrame.setVisible(true);
 		
 		
-		setLayout(null);
+		
+		
+		myPanel.setLayout(null);
 		
 		JButton CourseCreate = new JButton("Kurs erstellen");
 		
@@ -22,13 +32,14 @@ public class LectFunPanel extends JPanel {
 			
 			public void actionPerformed(ActionEvent e) {
 				
-				CourseCreateFrame frame = new CourseCreateFrame();
+				LectCourseCreate frame = new LectCourseCreate();
+				myFrame.dispose();
 				
 			}		
 		});
 
 				
-		add(CourseCreate);
+		myPanel.add(CourseCreate);
 		
 		
 		
@@ -40,22 +51,25 @@ public class LectFunPanel extends JPanel {
 			
 			public void actionPerformed(ActionEvent e) {
 				
-				LectCourseFrame frame = new LectCourseFrame();
+				LectCourse Frame = new LectCourse();
+				myFrame.dispose();
 				
 			}		
 		});
-		add(LectCourseList);
+		
+		myPanel.add(LectCourseList);
 		
 		
 		JButton Stundenplan = new JButton("Stundenplan");
 		
 		Stundenplan.setBounds(175, 380, 150, 80);
 		
-		add(Stundenplan);
+		myPanel.add(Stundenplan);
 		
 		
 		
 
+		
 	}
-
+	
 }
