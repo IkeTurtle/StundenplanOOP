@@ -1,5 +1,7 @@
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -65,6 +67,16 @@ public class CourseDescriptionPanel extends JPanel {
 		descriptionLabel.setVerticalAlignment(SwingConstants.CENTER);
 		
 		returnButton.setBounds(50, 500 , 150, 50);
+		returnButton.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				
+				StudCourseListPanel frame = new StudCourseListPanel();
+				descriptionFrame.dispose();
+				
+			}		
+		});
+		
 		
 		deleteButton.setBounds(250, 500 , 200, 50);
 		
