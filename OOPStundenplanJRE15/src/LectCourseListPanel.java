@@ -1,13 +1,17 @@
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 
 public class LectCourseListPanel extends JPanel {
 
@@ -24,7 +28,7 @@ public class LectCourseListPanel extends JPanel {
 	setLayout(null);
 	
 	JLabel Ueberschrift = new JLabel("Ihre Kurse");
-	
+	Ueberschrift.setForeground(Color.blue);
 	Ueberschrift.setHorizontalAlignment(SwingConstants.CENTER);
 	Ueberschrift.setVerticalAlignment(SwingConstants.CENTER);
 	Ueberschrift.setFont(new Font(null, Font.BOLD, 16));
@@ -33,11 +37,12 @@ public class LectCourseListPanel extends JPanel {
 	
 	add(Ueberschrift);
 	
+	Border compBorder = BorderFactory.createCompoundBorder(new LineBorder(Color.yellow), new LineBorder(Color.red, 3, true));
 	
 	String[] columnNames = {"ID", "Name"}; 
 	
 	x = new JTable(data, columnNames);
-	
+	x.setBorder(compBorder);
 	add(new JScrollPane(x));
 	
 	x.setBounds(70,70,360,400);
@@ -45,7 +50,7 @@ public class LectCourseListPanel extends JPanel {
 	add(x);
 	
 	  
-	JButton zurueck = new JButton("ZurÃ¼ck");
+	JButton zurueck = new JButton("Zurück");
 	
 	zurueck.setBounds(200, 495, 100, 30);
 	add(zurueck);

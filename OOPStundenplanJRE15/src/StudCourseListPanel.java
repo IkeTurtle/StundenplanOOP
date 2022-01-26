@@ -1,5 +1,7 @@
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
@@ -12,6 +14,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.LineBorder;
 import javax.swing.table.JTableHeader;
 
 public class StudCourseListPanel extends JPanel
@@ -26,7 +31,7 @@ public class StudCourseListPanel extends JPanel
 	
 	public StudCourseListPanel() 
 	{
-		JFrame courseListFrame = new JFrame("DescriptionFrame");
+		JFrame courseListFrame = new JFrame("StundenplanAPP");
 		courseListFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 		
 		JPanel courseListPanel = new JPanel();
@@ -35,14 +40,19 @@ public class StudCourseListPanel extends JPanel
 		courseListFrame.setSize(new Dimension(500, 600));
 		courseListFrame.add(courseListPanel);		
 		courseListFrame.setVisible(true);
+		courseListFrame.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("Superman_Logo.png")));
+		courseListFrame.setResizable(false);
 		
 		String[][] dataString = new String[][] 
 			{
 				{"1234", "Mathe", "Sehr viel rechnen", "8:00-12:00 Dienstags"},
 				{"315202", "OOP2", "Sehr viel programmieren", "8:00-12:00 Montags"},
 				{"4567", "Wirtschaft", "Sehr viel wirtschaften", "16:00-20:00 Montags"},
-				{"7892", "Englisch", "Sehr viel Ã¼bersetzen", "14:00-16:00 Freitags"}
+				{"7892", "Englisch", "Sehr viel Übersetzen", "14:00-16:00 Freitags"}
 			};
+		
+		
+		
 		String[] headerString = new String[] {"ID", "Name", "Beschreibung", "Zeitraum"};
 		
 		studentCourseListLabel = new JLabel("Max Mustermanns Kursliste");
@@ -61,10 +71,12 @@ public class StudCourseListPanel extends JPanel
 		courseListPanel.add(courseListScroll);
 		
 		
-		Border labelBorder = BorderFactory.createLineBorder(Color.BLACK, 2);	
+		Border compBorder = BorderFactory.createCompoundBorder(new LineBorder(Color.yellow), new LineBorder(Color.red, 3, true));
 		
 		studentCourseListLabel.setBounds(50, 10, 400, 50);
-		studentCourseListLabel.setBorder(labelBorder);
+		studentCourseListLabel.setForeground(Color.blue);
+		studentCourseListLabel.setFont(new Font(null, Font.BOLD, 16));
+		studentCourseListLabel.setBorder(compBorder);
 		studentCourseListLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		studentCourseListLabel.setVerticalAlignment(SwingConstants.CENTER);
 		
@@ -72,16 +84,16 @@ public class StudCourseListPanel extends JPanel
 		
 		
 		courseList.setBounds(50, 150, 380 , 300);
-		courseList.setBorder(labelBorder);
+		courseList.setBorder(compBorder);
 		courseList.setTableHeader(courseListHeader);
 		
 		
 		courseListHeader.setBounds(50, 102, 380, 50);
-		courseListHeader.setBorder(labelBorder);
+		courseListHeader.setBorder(compBorder);
 		
 		
 		courseListScroll.setBounds(428, 150 , 20, 300);
-		courseListScroll.setBorder(labelBorder);
+		courseListScroll.setBorder(compBorder);
 		
 	}
 	

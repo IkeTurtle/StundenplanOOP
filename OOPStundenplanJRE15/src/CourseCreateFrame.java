@@ -1,8 +1,11 @@
+import java.awt.Color;
+import java.awt.Toolkit;
+
 import javax.swing.JFrame;
 
 public class CourseCreateFrame {
 		
-	JFrame frame = new JFrame("Kurs erstellen");
+	JFrame frame = new JFrame("StundenplanAPP");
 	
 	CourseCreateFrame(){
 		
@@ -13,6 +16,8 @@ public class CourseCreateFrame {
 		
 		frame.getContentPane().add(Panel);
 		frame.setVisible(true);
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("Superman_Logo.png")));
+		frame.setResizable(false);
 		
 	}
 		
