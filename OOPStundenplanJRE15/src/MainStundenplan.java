@@ -25,10 +25,17 @@ MainStundenplan {
 		
 		
 		//Quang
-		LectFrame myframe = new LectFrame();
+		//LectFrame myframe = new LectFrame();
 		
-			
+	
+		StartScreen start = new StartScreen();
 		
+		
+		//Zong Yie
+		//Hallodadadada
+		//branch 'main' of https://github.com/IkeTurtle/StundenplanOOP.git
+		
+		//1346246242342
 	}
 
 }

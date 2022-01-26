@@ -1,7 +1,12 @@
 import java.awt.Color;
 import java.awt.Dimension;
+
 import java.awt.Font;
 import java.awt.Toolkit;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+//branch 'main' of https://github.com/IkeTurtle/StundenplanOOP.git
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -14,15 +19,19 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.LineBorder;
 
-public class CourseDescriptionPanel extends JPanel
-{
+public class CourseDescriptionPanel extends JPanel {
+
 	private JLabel nameLabel, idLabel, descriptionLabel, timeslotLabel;
 	private JButton deleteButton, returnButton;
 	
+
 	
-	public CourseDescriptionPanel()
-	{
-		JFrame descriptionFrame = new JFrame("StundenplanApp");
+
+
+	public CourseDescriptionPanel() {
+	
+		JFrame descriptionFrame = new JFrame("DescriptionFrame");
+		//branch 'main' of https://github.com/IkeTurtle/StundenplanOOP.git
 		descriptionFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 		
 		descriptionFrame.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("Superman_Logo.png")));
@@ -46,7 +55,11 @@ public class CourseDescriptionPanel extends JPanel
 		descriptionPanel.add(timeslotLabel);
 		
 		returnButton = new JButton("Return");
+
 		deleteButton = new JButton("Kurs aus Liste l�schen");
+
+		deleteButton = new JButton("Kurs aus Liste lÃ¶schen");
+		//	branch 'main' of https://github.com/IkeTurtle/StundenplanOOP.git
 		descriptionPanel.add(returnButton);
 		descriptionPanel.add(deleteButton);
 		
@@ -78,11 +91,18 @@ public class CourseDescriptionPanel extends JPanel
 		descriptionLabel.setVerticalAlignment(SwingConstants.CENTER);
 		
 		returnButton.setBounds(50, 500 , 150, 50);
+		returnButton.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				
+				StudCourseListPanel frame = new StudCourseListPanel();
+				descriptionFrame.dispose();
+				
+			}		
+		});
+		
 		
 		deleteButton.setBounds(250, 500 , 200, 50);
-		
-		
-		
 		
 	}
 }
