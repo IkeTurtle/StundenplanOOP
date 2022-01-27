@@ -45,22 +45,22 @@ public TimetablePanel() {
 	Border compBorder = BorderFactory.createCompoundBorder(new LineBorder(Color.yellow), new LineBorder(Color.red, 3, true));
 	Border raisedBorder = BorderFactory.createEtchedBorder(EtchedBorder.RAISED);
 	
-	String[] daysHeaderStrings = new String []{"Uhrzeit","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag","Sonntag"};
+	String[] daysHeaderStrings = new String []{"Uhrzeit","Montag","Dienstag","Mittwoch","Donnerstag","Freitag"};
 	
 	String [][] timeRowStrings = new String [][]{
-			{"8:00", "","","","","","","",},
-			{"9:00", "","","","","","","",},
-			{"10:00","","","","","","","",},
-			{"11:00","","","","","","","",},
-			{"12:00","","","","","","","",},
-			{"13:00","","","","","","","",},
-			{"14:00","","","","","","","",},
-			{"15:00","","","","","","","",},
-			{"16:00","","","","","","","",},
-			{"17:00","","","","","","","",},
-			{"18:00","","","","","","","",},
-			{"19:00","","","","","","","",},
-			{"20:00","","","","","","","",}};
+			{"8:00", "","","","","",},
+			{"9:00", "","","","","",},
+			{"10:00","","","","","",},
+			{"11:00","","","","","",},
+			{"12:00","","","","","",},
+			{"13:00","","","","","",},
+			{"14:00","","","","","",},
+			{"15:00","","","","","",},
+			{"16:00","","","","","",},
+			{"17:00","","","","","",},
+			{"18:00","","","","","",},
+			{"19:00","","","","","",},
+			{"20:00","","","","","",}};
 	
 	
 	timetable = new JTable(timeRowStrings, daysHeaderStrings );
