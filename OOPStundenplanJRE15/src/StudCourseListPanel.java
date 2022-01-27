@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -50,6 +51,7 @@ public class StudCourseListPanel extends JPanel
 		courseListFrame.setSize(new Dimension(500, 600));
 		courseListFrame.add(courseListPanel);		
 		courseListFrame.setVisible(true);
+		
 		courseListFrame.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("Superman_Logo.png")));
 		courseListFrame.setResizable(false);
 		
@@ -107,6 +109,8 @@ public class StudCourseListPanel extends JPanel
 		courseListPanel.add(returnButton);
 		
 		Border compBorder = BorderFactory.createCompoundBorder(new LineBorder(Color.yellow), new LineBorder(Color.red, 3, true));
+		Border raisedBorder = BorderFactory.createEtchedBorder(EtchedBorder.RAISED);
+		
 		
 		studentCourseListLabel.setBounds(50, 10, 400, 50);
 		studentCourseListLabel.setForeground(Color.blue);
@@ -131,11 +135,11 @@ public class StudCourseListPanel extends JPanel
 		
 		courseList.setBounds(50, 150, 380 , 300);
 
-		courseList.setBorder(compBorder);
+		courseList.setBorder(raisedBorder);
 		courseList.setTableHeader(courseListHeader);
 		
 
-		courseList.setBorder(compBorder);
+		courseList.setBorder(raisedBorder);
 		courseList.setFocusable(false);
 		courseList.addMouseListener(new MouseAdapter() {
 	         public void mouseClicked(MouseEvent me) {

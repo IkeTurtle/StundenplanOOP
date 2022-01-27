@@ -65,9 +65,18 @@ public class StudFun extends JPanel {
 		
 		myPanel.add(Stundenplan);
 		
+		Stundenplan.addActionListener(new ActionListener() {
+		
+		public void actionPerformed(ActionEvent e) {
+			
+			TimetablePanel frame3 = new TimetablePanel();
+			myFrame.dispose();
+			
+		}		
 		
 		
-
+		
+		});
 		
 	}
 	
