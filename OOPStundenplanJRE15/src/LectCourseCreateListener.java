@@ -1,12 +1,8 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Scanner;
-
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import javax.swing.JComboBox;
 import javax.swing.JTextArea;
 
@@ -39,21 +35,29 @@ public class LectCourseCreateListener implements ActionListener {
 		String stop1 = (String) stop.getSelectedItem();
 		
 		
+		OracleDsSingleton ora = OracleDsSingleton.getInstance();
+		
 		try {
 			
-			FileWriter fr = new FileWriter("Kurs-Liste.csv", true);
+			Connection con = ora.getConnection();
 			
-			BufferedWriter br = new BufferedWriter(fr);
+			String sql = "INSERT INTO KursList ( Kursid, Name, Abb, Beschreibung, Wochentag, Startzeit, Stopzeit) VALUES ( Kursid.nextval, ?, ?, ?, ?, ?, ?)";
 			
-			br.write("\n"+ name1 + ";" + abb1 + ";" + desc1 + ";" + day1 + ";" + start1 + ";" + stop1);
+			PreparedStatement ps = con.prepareStatement(sql);
 			
-			br.close();
+			ps.setString(1, name1);
+			ps.setString(2, abb1);
+			ps.setString(3, desc1);
+			ps.setString(4, day1);
+			ps.setString(5, start1);
+			ps.setString(6, stop1);
 			
-		} catch (FileNotFoundException e1) {
-			e1.printStackTrace();
+			int n = ps.executeUpdate();
+			
+			
 		}
-		catch (IOException e1) {
-			e1.printStackTrace();
+		catch(SQLException e1) {
+			
 		}
 		
 		LectCourseCreateDone frame = new LectCourseCreateDone();
