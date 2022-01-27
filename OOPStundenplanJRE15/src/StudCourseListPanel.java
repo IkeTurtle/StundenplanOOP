@@ -57,29 +57,17 @@ public class StudCourseListPanel extends JPanel
 		
 		String[][] dataString = new String[][] 
 			{
-				{"1234", "Mathe", "Sehr viel rechnen", "8:00-12:00 Dienstags"},
-				{"315202", "OOP2", "Sehr viel programmieren", "8:00-12:00 Montags"},
-				{"4567", "Wirtschaft", "Sehr viel wirtschaften", "16:00-20:00 Montags"},
+				{"1234", "Mathe", "Sehr viel rechnen", "8:00-12:00", "Dienstag"},
+				{"315202", "OOP2", "Sehr viel programmieren", "8:00-12:00", "Montag"},
+				{"4567", "Wirtschaft", "Sehr viel wirtschaften", "16:00-20:00", "Montag"},
 
-				{"7892", "Englisch", "Sehr viel Übersetzen", "14:00-16:00 Freitags"},
-
-				{"7892", "Englisch", "Sehr viel Ã¼bersetzen", "14:00-16:00 Freitags"},
-				{"1234", "Mathe", "Sehr viel rechnen", "8:00-12:00 Dienstags"},
-				{"315202", "OOP2", "Sehr viel programmieren", "8:00-12:00 Montags"},
-				{"4567", "Wirtschaft", "Sehr viel wirtschaften", "16:00-20:00 Montags"},
-				{"7892", "Englisch", "Sehr viel Ã¼bersetzen", "14:00-16:00 Freitags"},
-				{"1234", "Mathe", "Sehr viel rechnen", "8:00-12:00 Dienstags"},
-				{"315202", "OOP2", "Sehr viel programmieren", "8:00-12:00 Montags"},
-				{"4567", "Wirtschaft", "Sehr viel wirtschaften", "16:00-20:00 Montags"},
-				{"7892", "Englisch", "Sehr viel Ã¼bersetzen", "14:00-16:00 Freitags"},
-				{"1234", "Mathe", "Sehr viel rechnen", "8:00-12:00 Dienstags"},
-				
+				{"7892", "Englisch", "Sehr viel Übersetzen", "14:00-16:00", "Freitag"},
 				//branch 'main' of https://github.com/IkeTurtle/StundenplanOOP.git
 			};
 		
 		
 		
-		String[] headerString = new String[] {"ID", "Name", "Beschreibung", "Zeitraum"};
+		String[] headerString = new String[] {"ID", "Name", "Beschreibung", "Zeitraum", "Tag"};
 		
 		studentCourseListLabel = new JLabel("Max Mustermanns Kursliste");
 		courseListPanel.add(studentCourseListLabel);

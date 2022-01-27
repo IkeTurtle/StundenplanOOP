@@ -7,9 +7,24 @@ MainStundenplan {
 
 	public static void main(String[] args) 
 	{	
-		//Zong Jie
-		//https://docs.oracle.com/javase/tutorial/uiswing/lookandfeel/nimbus.html
 		
+		//Zong Jie
+		//Quellen
+		//http://www.logoorange.com/logodesign-S.php ( Superman Icon)
+
+		//https://dribbble.com/shots/8641810-Freebie-App-landing-page (GiF) 
+		
+		//https://docs.oracle.com/javase/tutorial/uiswing/lookandfeel/nimbus.html (Design)
+		try {
+    	    for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+    	        if ("Nimbus".equals(info.getName())) {
+    	            UIManager.setLookAndFeel(info.getClassName());
+    	            break;
+    	        }
+    	    }
+    	} catch (Exception e) {
+    	    
+    	}
 		
 		TimetablePanel timetableFrame = new TimetablePanel();
 		
@@ -25,8 +40,6 @@ MainStundenplan {
 		StartScreen start = new StartScreen();
 		
 		
-		//Zong Yie
-
 		//branch 'main' of https://github.com/IkeTurtle/StundenplanOOP.git
 		
 	}

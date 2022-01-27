@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Frame;
 import java.awt.Toolkit;
 import java.awt.Window;
 import java.awt.event.ActionEvent;
@@ -9,6 +10,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.Border;
@@ -18,36 +20,37 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableModel;
 
-public class TimetablePanel extends JPanel {
+public class TimetablePanel extends JTable {
 		
 		JTable timetable;
-		JFrame timetaFrame;
-		JPanel timetableJPanel;
+		JFrame timetableFrame;
 		JTableHeader timetableHeader;	
-		JButton retButton;
+		JButton returnButton;
+
 		
 public TimetablePanel() {
 	// TODO Auto-generated constructor stub
 	
-	JFrame timetableFrame = new JFrame("Stundenplan");	 
-	JPanel TimetableJPanel = new JPanel();
+	timetableFrame = new JFrame("Stundenplan");	
+	timetableFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 	
 	//JButton zurückButton = new JButton("Zurück");	
 	
-	timetableFrame.setSize(new Dimension(500, 600));
-	timetableFrame.getContentPane().setBackground(Color.white);
-	timetableFrame.add(TimetableJPanel);
+	timetableFrame.setSize(new Dimension (1000, 600));
 	timetableFrame.setVisible(true);
 	timetableFrame.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("Superman_Logo.png")));
 	timetableFrame.setResizable(false);
-	timetableFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	
+	timetableFrame.getContentPane().setLayout(null);
+
+	JScrollPane scrollPane = new JScrollPane();
+	scrollPane.setBounds(10, 10, 920, 400);
+	timetableFrame.getContentPane().add(scrollPane);
 	Border compBorder = BorderFactory.createCompoundBorder(new LineBorder(Color.yellow), new LineBorder(Color.red, 3, true));
 	Border raisedBorder = BorderFactory.createEtchedBorder(EtchedBorder.RAISED);
 	
-	String[] daysHeaderStrings = new String []{"Uhrzeit","Montag","Dienstag","Mittwoch","Donnerstag","Freitag"};
-	
-	String [][] timeRowStrings = new String [][]{
+	String[] dayStrings = new String []{"Uhrzeit","Montag","Dienstag","Mittwoch","Donnerstag","Freitag"};
+	String [][] timeStrings = new String [][]{
 			{"8:00", "","","","","",},
 			{"9:00", "","","","","",},
 			{"10:00","","","","","",},
@@ -61,18 +64,23 @@ public TimetablePanel() {
 			{"18:00","","","","","",},
 			{"19:00","","","","","",},
 			{"20:00","","","","","",}};
+		
 	
-	
-	timetable = new JTable(timeRowStrings, daysHeaderStrings );
+	timetable = new JTable(timeStrings, dayStrings );
+	timetableFrame.add(timetable);
+	scrollPane.setViewportView(timetable);
+	timetable.setBounds(10, 10, 920, 400);
 	timetable.setVisible(true);	
 	timetable.setBorder(raisedBorder);
-	TimetableJPanel.add(timetable);
-	TimetableJPanel.add(new JScrollPane(timetable));
-	TimetableJPanel.setBorder(compBorder);
+	timetable.setRowHeight(40);
+
 	
-	JButton returnButton = new JButton("Return");
-	TimetableJPanel.add(returnButton);
-	returnButton.setBounds(50, 500 , 150, 50);
+	timetableHeader = new JTableHeader();
+	timetable.add(timetableHeader);
+	
+	returnButton = new JButton("Return");
+	timetableFrame.getContentPane().add(returnButton);
+	returnButton.setBounds(10, 500, 193, 50);
 	returnButton.addActionListener(new ActionListener() {
 		
 		public void actionPerformed(ActionEvent e) {
