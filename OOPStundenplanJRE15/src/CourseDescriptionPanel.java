@@ -15,9 +15,13 @@ public class CourseDescriptionPanel extends JPanel {
 
 	private JLabel nameLabel, idLabel, descriptionLabel, timeslotLabel;
 	private JButton deleteButton, returnButton;
+	//StudCourseListPanel current = new StudCourseListPanel();
+	
+	
 	
 	public CourseDescriptionPanel() {
-		
+		//int currentSelectedRow = current.getCurrentRow();
+		//String Test = Integer.toString(currentSelectedRow);
 		JFrame descriptionFrame = new JFrame("DescriptionFrame");
 		descriptionFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 		
@@ -28,7 +32,9 @@ public class CourseDescriptionPanel extends JPanel {
 		descriptionFrame.add(descriptionPanel);		
 		descriptionFrame.setVisible(true);
 		
-		nameLabel = new JLabel("Kurs XY");
+		 
+		
+		nameLabel = new JLabel("Test");
 		idLabel = new JLabel("KursID 123456");
 		descriptionLabel = new JLabel("Kurs XY Beschreibung");
 		timeslotLabel = new JLabel("12:00-16:00 Dienstags");		
@@ -38,7 +44,7 @@ public class CourseDescriptionPanel extends JPanel {
 		descriptionPanel.add(timeslotLabel);
 		
 		returnButton = new JButton("Return");
-		deleteButton = new JButton("Kurs aus Liste lÃ¶schen");
+		deleteButton = new JButton("Kurs aus Liste löschen");
 		descriptionPanel.add(returnButton);
 		descriptionPanel.add(deleteButton);
 		

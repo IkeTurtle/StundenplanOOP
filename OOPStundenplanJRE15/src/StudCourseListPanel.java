@@ -1,9 +1,11 @@
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.lang.ModuleLayer.Controller;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
@@ -28,12 +30,13 @@ public class StudCourseListPanel extends JPanel
 	private JTable courseList;
 	private JTableHeader courseListHeader;
 	private JScrollPane courseListScroll;
-	//private ArrayList ArrayListKursSpecific<>;
+	private Controller studCourseListController;
+	
 	
 	
 	public StudCourseListPanel() 
 	{
-		JFrame courseListFrame = new JFrame("DescriptionFrame");
+		JFrame courseListFrame = new JFrame("CourseListFrame");
 		courseListFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 		
 		JPanel courseListPanel = new JPanel();
@@ -75,7 +78,10 @@ public class StudCourseListPanel extends JPanel
 				return false;
 			}
 		};
-		//https://www.tutorialspoint.com/how-can-we-detect-the-double-click-events-of-a-jtable-row-in-java		
+		//https://www.tutorialspoint.com/how-can-we-detect-the-double-click-events-of-a-jtable-row-in-java	
+		
+		
+		
 		courseListPanel.add(courseList);
 		
 		courseListHeader = new JTableHeader();
@@ -110,8 +116,8 @@ public class StudCourseListPanel extends JPanel
 		returnButton.setPreferredSize(new Dimension(150,50));
 		
 		
+		
 		courseList.setBounds(50, 150, 380 , 300);
-		courseList.setBorder(labelBorder);
 		courseList.setFocusable(false);
 		courseList.addMouseListener(new MouseAdapter() {
 	         public void mouseClicked(MouseEvent me) {
@@ -119,12 +125,16 @@ public class StudCourseListPanel extends JPanel
 	                JTable target = (JTable)me.getSource();
 	                int row = target.getSelectedRow(); 
 	                int column = target.getSelectedColumn(); 
-	               
-	                CourseDescriptionPanel frame = new CourseDescriptionPanel();
+	                
+	                
+	                CourseDescriptionPanel frame = new CourseDescriptionPanel();	                
 	                courseListFrame.dispose();
+	                
+	               
 	             }
 	          }
 	       });
+		
 		//https://www.tutorialspoint.com/how-can-we-detect-the-double-click-events-of-a-jtable-row-in-java
 		
 		courseListHeader.setBounds(50, 102, 380, 50);
@@ -136,5 +146,13 @@ public class StudCourseListPanel extends JPanel
 		
 	}
 	
+	public void  addController(Controller studCourseListcontroller) {
+		// TODO Auto-generated method stub
+		this.studCourseListController = studCourseListController;
+		//courseList.addMouseListener(studCourseListController);
+	                
+	    
+
+	}
 	
 }
